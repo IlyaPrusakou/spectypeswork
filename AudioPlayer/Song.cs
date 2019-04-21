@@ -8,11 +8,12 @@ namespace Audioplayer
 {
     class Song
     {
+        
         public int duration;
         public string title;
         public string songPath;
         public string lyrics;
-        public string songGenre;
+        public Genres songGenre; // enum Genres
         public Artist artist;
         public Album album;
         public Player player;

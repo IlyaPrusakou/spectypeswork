@@ -7,8 +7,14 @@ using static System.Console;
 
 namespace Audioplayer
 {
+    public enum Genres // enum Genres
+    {
+        Pop = 1, Rock = 2, Metal = 3, Electro = 4
+    }
     class Program
     {
+
+        
 
         //B5-Player7/10. OutRefParameters.
         public static int TotalDur;
@@ -102,6 +108,7 @@ namespace Audioplayer
             album.year = _year;
             return album;
         }
+
         static void Main(string[] args)
         {
 
@@ -111,21 +118,18 @@ namespace Audioplayer
             for (int i = 0; i < 40; i++) 
             {
                 songList.Add(new Song { title = "ssss" + i, IsNext=false, duration = 540 });
-                if (i == 3 || i == 7 || i == 23) { songList[i].LikeMethod(); }
-                if (i == 5 || i == 8 || i == 22 || i == 21) { songList[i].DislikeMethod(); }
+                if (i == 3 || i == 7 || i == 23) { songList[i].LikeMethod(); }  //try like\dislike
+                if (i == 5 || i == 8 || i == 22 || i == 21) { songList[i].DislikeMethod(); } //try like\dislike
             }
-
-            player.ListSong(songList);
-            
-            
-            
-            
+            player.ListSong(songList); // try 
+            songList[3].songGenre = Genres.Pop; //try  enum Genres
+            WriteLine(songList[3].songGenre);
             // B5-Player2/10. Fields.
             Song song1 = new Song();
 
             song1.duration = 300;
             song1.title = "Cvet nastroenia sinii";
-            song1.songGenre = "Metal";
+            //song1.songGenre = "Metal";
             song1.lyrics = "lalala";
             song1.artist = new Artist{name = "Kirkorov"};
 
@@ -133,7 +137,7 @@ namespace Audioplayer
             Song song2 = new Song();
             song2.duration = 300;
             song2.title = "Anaconda";
-            song2.songGenre = "Pop";
+            //song2.songGenre = "Pop";
             song2.lyrics = "lalala";
             song2.artist = new Artist
             {

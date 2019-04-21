@@ -78,6 +78,7 @@ namespace Audioplayer
                 Console.WriteLine(item.title);
             }
         }
+        //BL8-Player1/3.SongTuples.
         // my .net version is 4.7.2
         public (string Title, bool IsNext, (int Sec, int Min, int Hour)) GetSongData(Song song) 
         {
@@ -88,9 +89,9 @@ namespace Audioplayer
             int f2 = song.duration/3600;
             return (Title: s, IsNext:d, (Sec: f, Min: f1, Hour: f2));
         }
+        // BL8 - Player2 / 3.LikeDislike.
         public void ListSong(List<Song> list)
         {
-            
             foreach (Song item in list)
             {
                var tuple =  GetSongData(item);
@@ -107,7 +108,7 @@ namespace Audioplayer
             Console.WriteLine("Volume " + Volume);
 
         }
-
+        
         public void VolumeDown()
         {
             Volume = Volume - 1;
