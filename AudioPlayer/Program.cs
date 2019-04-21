@@ -105,25 +105,21 @@ namespace Audioplayer
         static void Main(string[] args)
         {
 
-            Player player = new Player(); //try new methods (shufle and sortbytitle)
+            Player player = new Player(); 
 
-            List<Song> songList = new List<Song>(); //try new methods (shufle and sortbytitle)
-            for (int i = 0; i < 40; i++) //try new methods (shufle and sortbytitle)
+            List<Song> songList = new List<Song>(); 
+            for (int i = 0; i < 40; i++) 
             {
-                songList.Add(new Song { title = "ssss" + i }); //try new methods (shufle and sortbytitle)
+                songList.Add(new Song { title = "ssss" + i, IsNext=false, duration = 540 });
+                if (i == 3 || i == 7 || i == 23) { songList[i].LikeMethod(); }
+                if (i == 5 || i == 8 || i == 22 || i == 21) { songList[i].DislikeMethod(); }
             }
+
+            player.ListSong(songList);
             
-            var TestShufle = player.Shufle(songList); //try new methods (shufle and sortbytitle)
-
-            foreach (Song item in TestShufle) //try new methods (shufle and sortbytitle)
-            {
-                WriteLine("Unsorted     " + item.title); //try new methods (shufle and sortbytitle)
-            }
-            var SortedTEST = player.SortByTitle(TestShufle); //try new methods (shufle and sortbytitle)
-            foreach (Song item in SortedTEST) //try new methods (shufle and sortbytitle)
-            {
-                WriteLine("Sortedtest   " + item.title); //try new methods (shufle and sortbytitle)
-            }
+            
+            
+            
             // B5-Player2/10. Fields.
             Song song1 = new Song();
 

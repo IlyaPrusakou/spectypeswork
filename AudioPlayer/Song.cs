@@ -18,6 +18,19 @@ namespace Audioplayer
         public Player player;
         public List<Playlist> playlists = new List<Playlist>();
 
+        public bool IsNext { get; set; }
+        public bool? Like { get; set; }
+
+
+        public void LikeMethod()
+        {
+            Like = true;
+        }
+
+        public void DislikeMethod()
+        {
+            Like = false;
+        }
 
     }
 }

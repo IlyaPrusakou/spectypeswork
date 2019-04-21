@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Audioplayer
 {
     class Player
@@ -74,6 +76,28 @@ namespace Audioplayer
             foreach (Song item in SongList)
             {
                 Console.WriteLine(item.title);
+            }
+        }
+        // my .net version is 4.7.2
+        public (string Title, bool IsNext, (int Sec, int Min, int Hour)) GetSongData(Song song) 
+        {
+            string s = song.title;
+            bool d = song.IsNext;
+            int f = song.duration;
+            int f1 = song.duration/60;
+            int f2 = song.duration/3600;
+            return (Title: s, IsNext:d, (Sec: f, Min: f1, Hour: f2));
+        }
+        public void ListSong(List<Song> list)
+        {
+            
+            foreach (Song item in list)
+            {
+               var tuple =  GetSongData(item);
+                if (item.Like == true) { Console.ForegroundColor = ConsoleColor.Green; }
+                else if (item.Like == false) { Console.ForegroundColor = ConsoleColor.Red; }
+                else if (item.Like == null) { Console.ResetColor(); }
+                Console.WriteLine($"{tuple.Title} - {tuple.Item3.Hour}:{tuple.Item3.Min}:{tuple.Item3.Sec}");
             }
         }
         //B5-Player3/10. Method. 
